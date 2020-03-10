@@ -11,7 +11,7 @@ setuptools.setup(
     description="A wrapper function for using the Cleveland Museum of Art's open access API",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pypa/sampleproject",
+    url="https://github.com/ClevelandMuseumArt/openaccess_cma_package",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",

@@ -1,7 +1,7 @@
 import sys
 import unittest
 import validators
-from open_access_wrapper import openaccess_cma_search
+from openaccess_cma import openaccess_cma_search
 
 class TestOpenAccessPIPModule(unittest.TestCase):
 	
@@ -52,7 +52,7 @@ class TestOpenAccessPIPModule(unittest.TestCase):
 
 	def test_limit(self):
 		with self.assertRaises(ValueError):
-			openaccess_cma_search(limit="-1")
+			openaccess_cma_search(limit="c d.")
 		with self.assertRaises(ValueError):
 			openaccess_cma_search(limit="HELLO")
 		d,_ = openaccess_cma_search(q="cezanne",department="Drawings",limit =10)

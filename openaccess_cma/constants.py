@@ -7,10 +7,23 @@ http://openaccess-api.clevelandart.org/#appendix-b'''
 
 CC0_ERROR_MESSAGE = "cc0 argument must be 1 or 0"
 
-ERROR_MESSAGE = "Bad Request Status Code %s" % (r.status_code)
+BAD_REQUEST = lambda a: "Bad Request Status Code %s" % (a)
 
 #VALID TYPES
-VALID_CC0_TYPES = ['0','1']
+VALID_CC0_TYPES = ['0', '1']
+
+NO_ARGUMENT = [
+"currently_on_view",
+"currently_on_loan",
+"african_american_artists",
+"cia_alumni_artists",
+"may_show_artists",
+"female_artists",
+"recently_acquired",
+"nazi_era_provenance",
+"currently_on_view",
+]
+
 
 VALID_DEPARTMENTS = [
 "African Art",
@@ -33,7 +46,8 @@ VALID_DEPARTMENTS = [
 "Performing Arts, Music, & Film",
 "Photography",
 "Prints",
-"Textiles"]
+"Textiles",
+]
 
 VALID_TYPES = [
 "Amulets",
@@ -104,4 +118,5 @@ VALID_TYPES = [
 "Velvet",
 "Vessels",
 "Wood",
-"Woodblock"]
+"Woodblock",
+]
