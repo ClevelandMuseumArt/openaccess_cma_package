@@ -65,7 +65,3 @@ def openaccess_cma_search(q=None,
     if r.status_code != requests.codes.ok:
         raise requests.HTTPError(c.BAD_REQUEST(r.status_code))
     return r.json(), API_REQUEST
-
-if __name__ == "__main__":
-    import tests
-    unittest.main()
