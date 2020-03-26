@@ -11,12 +11,13 @@ import unittest
 def openaccess_cma_search(**kwargs):
     #validating provided keyword arguments
     for k in kwargs.keys():
-      if k not in c.VALID_PARAMETERS:
-        raise TypeError("openaccess_cma_search got an unexpected keyword argument : '%s'"%(k))
+        if k not in c.VALID_PARAMETERS:
+            raise TypeError("openaccess_cma_search got an unexpected keyword argument : '%s'" % (k))
     API_BASE_URL = "https://openaccess-api.clevelandart.org/api/artworks/?"
     API_REQUEST = API_BASE_URL
     #error checking for arugments
     validate_arguments(kwargs)
+
     #local function for adding parameters to query string
     def add_query(query_type, argument):
         if argument is not None:
