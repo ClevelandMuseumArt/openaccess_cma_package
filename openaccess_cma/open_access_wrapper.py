@@ -35,7 +35,7 @@ def openaccess_cma_search(**kwargs):
     #remove trailing '&' if one exists
     if API_REQUEST[-1] == '&':
         API_REQUEST = API_REQUEST[:-1]
-    #making the requests
+    #make the requests
     r = requests.get(API_REQUEST)
     if r.status_code != requests.codes.ok:
         raise requests.HTTPError(c.BAD_REQUEST(r.status_code))
