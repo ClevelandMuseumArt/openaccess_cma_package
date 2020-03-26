@@ -8,41 +8,15 @@ import unittest
 #This is a simple wrapper function for making requests
 #to Cleveland Museum of Art's open-access API. Documentation
 #for the API can be found here http://openaccess-api.clevelandart.org/
-def openaccess_cma_search(q=None,
-                          cc0=None,
-                          department=None,
-                          type=None,
-                          has_image=None,
-                          indent=None,
-                          skip=None,
-                          limit=None,
-                          artists=None,
-                          title = None,
-                          medium = None,
-                          credit = None,
-                          catalogue_raisonne = None,
-                          provenance = None,
-                          citations = None,
-                          exhibition_history = None,
-                          created_before = None,
-                          created_after = None,
-                          currently_on_loan = None,
-                          currently_on_view = None,
-                          african_american_artists = None,
-                          cia_alumni_artists = None,
-                          may_show_artists = None,
-                          female_artists = None,
-                          recently_acquired = None,
-                          nazi_era_provenance = None,
-                          created_after_age = None,
-                          created_before_age = None,
-                          ):
-    #generates a dictionary of argument value pairs
-    _, _, _, values = inspect.getargvalues(inspect.currentframe())
+def openaccess_cma_search(**kwargs):
+    #validating provided keyword arguments
+    for k in kwargs.keys():
+      if k not in c.VALID_PARAMETERS:
+        raise TypeError("openaccess_cma_search got an unexpected keyword argument : '%s'"%(k))
     API_BASE_URL = "https://openaccess-api.clevelandart.org/api/artworks/?"
     API_REQUEST = API_BASE_URL
     #error checking for arugments
-    validate_arguments(values)
+    validate_arguments(kwargs)
     #local function for adding parameters to query string
     def add_query(query_type, argument):
         if argument is not None:
@@ -56,8 +30,9 @@ def openaccess_cma_search(q=None,
                 q = query_type+'='+str_argument+'&'
             API_REQUEST += q
     #looping through arguments and generating query
-    for k, v in values.items():
+    for k, v in kwargs.items():
         add_query(k, v)
+    #remove trailing '&' if one exists
     if API_REQUEST[-1] == '&':
         API_REQUEST = API_REQUEST[:-1]
     #making the requests

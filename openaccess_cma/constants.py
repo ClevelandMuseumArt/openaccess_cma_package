@@ -9,10 +9,42 @@ CC0_ERROR_MESSAGE = "cc0 argument must be 1 or 0"
 
 BAD_REQUEST = lambda a: "Bad Request Status Code %s" % (a)
 
-#VALID TYPES
-VALID_CC0_TYPES = ['0', '1']
+#VALID TYPE
+VALID_PARAMETERS = [
+"q",
+"cc0",
+"copyrighted",
+"department",
+"type",
+"has_image",
+"indent",
+"skip",
+"limit",
+"artists",
+"title",
+"medium",
+"credit",
+"catalogue_raisonne",
+"provenance",
+"citations",
+"exhibition_history",
+"created_before",
+"created_after",
+"currently_on_loan",
+"currently_on_view",
+"african_american_artists",
+"cia_alumni_artists",
+"may_show_artists",
+"female_artists",
+"recently_acquired",
+"nazi_era_provenance",
+"created_after_age",
+"created_before_age",
+]
 
 NO_ARGUMENT = [
+"cc0",
+"copyrighteed",
 "currently_on_view",
 "currently_on_loan",
 "african_american_artists",
